@@ -43,7 +43,7 @@ as
 go; 
 
 
-alter procedure addOrEditAppointment 
+create procedure addOrEditAppointment 
 @startDate datetime, @endDate datetime,@type tinyint, @status tinyint, @paientId int, @id int
 as 
 
@@ -122,7 +122,7 @@ as
 		set @NewId = SCOPE_IDENTITY()
 	end
 
-	select @Msg as ReturnedMsg, @NewId as InsertedId
+	select @Msg as ReturnedMsg, @NewId as Id
 go; 
 
 create procedure getPaients 
