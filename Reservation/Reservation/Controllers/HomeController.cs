@@ -8,16 +8,12 @@ namespace Reservation.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
         public AppointmentDataAccess _appointmentData { get; }
         private readonly IMapper _mapper;
-        public HomeController(ILogger<HomeController> logger,
-            AppointmentDataAccess appointmentData,
+        public HomeController(AppointmentDataAccess appointmentData,
             IMapper mapper
             )
         {
-            _logger = logger;
             _appointmentData = appointmentData;
             _mapper = mapper;
         }
