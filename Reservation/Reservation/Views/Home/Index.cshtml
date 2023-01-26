@@ -1,10 +1,13 @@
 ﻿@model IEnumerable<AppointmentViewModel> 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Appointments";
 }
 
 <div class="text-center"> 
     <h1> Appointments </h1>
+    <div class="col-2 float-end">
+        <a class="btn btn-primary add-button" asp-action="addAppointment">Add</a>
+    </div>
     <table class="table table-striped">
         <thead>
             <tr>
@@ -28,12 +31,35 @@
                     <td>@data.PaientId</td>
                     <td>@data.Period</td>
                     <td>
-                        <a class="btn btn-outline-info"> edit </a>
-                        <a class="btn btn-outline-danger"> delete </a>
+                        <a class="btn btn-outline-info" asp-action="edit" asp-route-id="@data.Id" > edit </a>
+                        <a class="btn btn-outline-danger" onclick="deleteAppointment(@data.Id)"> delete </a>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+@section Scripts { 
+    <script>
+        function deleteAppointment(id){
+            if (confirm("Are you sure you want to delete this record?", "Deletion Confirmation", "Yes,No")) {
+                // delete the record
+                $.ajax({
+                    url: '/appointment/' + id,
+                    type: 'DELETE',
+                    success: function(result) {
+                        // handle the success
+                        console.log(result);
+                        location.reload();
+                    },
+                    error: function(xhr, status, error) {
+                        // handle the error
+                        console.log(xhr, status, error);
+                    }
+                });
+            }
+        }
+    </script>
+}
 

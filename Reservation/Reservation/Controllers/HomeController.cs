@@ -36,5 +36,21 @@ namespace Reservation.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpDelete("/appointment/{id}")]
+        public IActionResult Delete(int id)
+        {
+            // delete the item from the database
+            // ...
+            _appointmentData.DeleteAppointment(id);
+            return Ok(); 
+            //  return RedirectToAction("Index");
+        }
+
+        public IActionResult AddAppointment()
+        {
+
+            return View(); 
+        }
     }
 }
