@@ -21,6 +21,10 @@ namespace Reservation.Mapper
                 .ForMember(dest => dest.PaientId, opt => opt.MapFrom(src => src.PaientId));
 
             CreateMap<Paient, PaientViewModel>();
+            CreateMap<AddPaientViewModel, Paient>();
+
+            CreateMap<Paient, AddPaientViewModel>();
+
 
             //.ForMember(dest => dest.PatientId, opt => opt.MapFrom(src => src.PaientId));
             //CreateMap<Appointment, AppointmentViewModel>()

@@ -43,11 +43,12 @@ namespace Reservation.Controllers
         [HttpDelete("/appointment/{id}")]
         public IActionResult Delete(int id)
         {
-            // delete the item from the database
-            // ...
-            _appointmentData.DeleteAppointment(id);
-            return Ok(); 
-            //  return RedirectToAction("Index");
+            if (id > 0)
+            {
+                var deleted = _appointmentData.DeleteAppointment(id);
+                return Ok(deleted.Msg);
+            }
+            return Ok("Id is not found");
         }
 
         public IActionResult AddAppointment()
@@ -65,14 +66,18 @@ namespace Reservation.Controllers
         }
         public IActionResult Save(AddAppointmentViewModel model)
         {
-            var mapped = _mapper.Map<Appointment>(model); 
-            var result =  _appointmentData.AddOrUpdateAppointment(mapped);
+            if (ModelState.IsValid)
+            {
+                var mapped = _mapper.Map<Appointment>(model);
+                var result = _appointmentData.AddOrUpdateAppointment(mapped);
 
-            if(result.NewId > 0) {
-                return RedirectToAction("Index"); 
+                if (result.NewId > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                ViewBag.inserted = result.Msg;
+                // ModelState.AddModelError("inserted", result.Msg); 
             }
-            ViewBag.inserted = result.Msg; 
-           // ModelState.AddModelError("inserted", result.Msg); 
             return View("AddAppointment", model);
         }
 

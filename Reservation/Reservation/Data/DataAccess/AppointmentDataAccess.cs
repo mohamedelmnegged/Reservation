@@ -95,7 +95,7 @@ namespace Reservation.Data.DataAccess
             return Appointment;
         }
 
-        public void DeleteAppointment(int? id)
+        public Result DeleteAppointment(int? id)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -103,8 +103,16 @@ namespace Reservation.Data.DataAccess
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 con.Open();
-                cmd.ExecuteNonQuery();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                Result Result = new Result();
+                while (rdr.Read())
+                {
+                    Result.NewId = Convert.ToInt32(rdr["ID"]);
+                    Result.Msg = rdr["ReturnedMsg"].ToString();
+                }
                 con.Close();
+                return Result;
             }
         }
     }

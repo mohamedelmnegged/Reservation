@@ -30,17 +30,19 @@ namespace Reservation.Controllers
         }
 
       
-        [HttpDelete("/appointment/{id}")]
+        [HttpDelete("/paient/{id}")]
         public IActionResult Delete(int id)
         {
-            // delete the item from the database
-            // ...
-            _appointmentData.DeleteAppointment(id);
-            return Ok(); 
+            if (id > 0)
+            {
+                var deleted = _painetData.DeletePaient(id);
+                return Ok(deleted.Msg);
+            }
+            return Ok("Id is not found");
             //  return RedirectToAction("Index");
         }
 
-        public IActionResult AddAppointment()
+        public IActionResult AddPaient()
         {
 
            // var model = new AddAppointmentViewModel();
@@ -53,31 +55,35 @@ namespace Reservation.Controllers
 
             return View(); 
         }
-        public IActionResult Save(AddAppointmentViewModel model)
+        public IActionResult Save(AddPaientViewModel model)
         {
-            var mapped = _mapper.Map<Appointment>(model); 
-            var result =  _appointmentData.AddOrUpdateAppointment(mapped);
+            if (ModelState.IsValid)
+            {
+                var mapped = _mapper.Map<Paient>(model);
+                var result = _painetData.AddOrUpdatePaient(mapped);
 
-            if(result.NewId > 0) {
-                return RedirectToAction("Index"); 
+                if (result.NewId > 0)
+                {
+                    return RedirectToAction("Index");
+                }
+                ViewBag.inserted = result.Msg;
+                // ModelState.AddModelError("inserted", result.Msg); 
             }
-            ViewBag.inserted = result.Msg; 
-           // ModelState.AddModelError("inserted", result.Msg); 
-            return View("AddAppointment", model);
+            return View("AddPaient", model);
         }
 
         public IActionResult Edit(int id)
         {
-            var appointment = _appointmentData.GetAppointmentData(id); 
-            if(appointment != null) {
-                if (appointment.Id > 0)
+            var painet = _painetData.GetPaientDataById(id); 
+            if(painet != null) {
+                if (painet.Id > 0)
                 {
-                    var model = _mapper.Map<AddAppointmentViewModel>(appointment);
+                    var model = _mapper.Map<AddPaientViewModel>(painet);
 
-                    return View("AddAppointment", model);
+                    return View("AddPaient", model);
                 }
             }
-            ViewBag.Appointment = "This Appointment is not found"; 
+            ViewBag.Paient = "This Paient is not found"; 
             return RedirectToAction("Index"); 
         }
     }

@@ -13,7 +13,7 @@
 <div class="text-center"> 
     <h1> Appointments </h1>
     <div class="col-2 float-end">
-        <a class="btn btn-primary add-button" asp-action="addPaient">Add</a>
+        <a class="btn btn-primary add-button" asp-action="AddPaient">Add</a>
     </div>
     <table class="table table-striped">
         <thead>
@@ -39,7 +39,7 @@
                     <td> @data.Country</td>
                     <td>
                         <a class="btn btn-outline-info" asp-action="edit" asp-route-id="@data.Id" > edit </a>
-                        <a class="btn btn-outline-danger" onclick="deleteAppointment(@data.Id)"> delete </a>
+                        <a class="btn btn-outline-danger" onclick="deletePaient(@data.Id)"> delete </a>
                     </td>
                 </tr>
             }
@@ -49,11 +49,11 @@
 
 @section Scripts { 
     <script>
-        function deleteAppointment(id){
+        function deletePaient(id) {
             if (confirm("Are you sure you want to delete this record?", "Deletion Confirmation", "Yes,No")) {
                 // delete the record
                 $.ajax({
-                    url: '/appointment/' + id,
+                    url: '/paient/' + id,
                     type: 'DELETE',
                     success: function(result) {
                         // handle the success

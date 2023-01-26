@@ -41,7 +41,7 @@ namespace Reservation.Data.DataAccess
             }
             return lstPaient;
         }
-        public void AddOrUpdatePaient(Paient Paient)
+        public Result AddOrUpdatePaient(Paient Paient)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -52,12 +52,20 @@ namespace Reservation.Data.DataAccess
                 cmd.Parameters.AddWithValue("@address", Paient.Address);
                 cmd.Parameters.AddWithValue("@phone", Paient.Phone);
                 cmd.Parameters.AddWithValue("@country", Paient.Country);
-                cmd.Parameters.AddWithValue("@geneder", Paient.Geneder);
+                cmd.Parameters.AddWithValue("@gender", Paient.Geneder);
                 cmd.Parameters.AddWithValue("@birthDate", Paient.BirthDate);
                 cmd.Parameters.AddWithValue("@id", Paient.Id);
                 con.Open();
-                cmd.ExecuteNonQuery();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                Result Result = new Result();
+                while (rdr.Read())
+                {
+                    Result.NewId = Convert.ToInt32(rdr["ID"]);
+                    Result.Msg = rdr["ReturnedMsg"].ToString();
+                }
                 con.Close();
+                return Result;
             }
         }
 
@@ -81,14 +89,14 @@ namespace Reservation.Data.DataAccess
                     Paient.Address = rdr["Address"].ToString();
                     Paient.Phone = rdr["Phone"].ToString();
                     Paient.Geneder = Convert.ToInt32(rdr["Geneder"]);
-                    Paient.BirthDate = Convert.ToDateTime(rdr["FullName"]);
+                    Paient.BirthDate = Convert.ToDateTime(rdr["BirthDate"]);
                     Paient.Country = rdr["Country"].ToString();
                 }
             }
             return Paient;
         }
 
-        public void DeletePaient(int? id)
+        public Result DeletePaient(int? id)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -96,8 +104,16 @@ namespace Reservation.Data.DataAccess
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@id", id);
                 con.Open();
-                cmd.ExecuteNonQuery();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                Result Result = new Result();
+                while (rdr.Read())
+                {
+                    Result.NewId = Convert.ToInt32(rdr["ID"]);
+                    Result.Msg = rdr["ReturnedMsg"].ToString();
+                }
                 con.Close();
+                return Result;
             }
         }
     }
