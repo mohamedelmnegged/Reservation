@@ -4,7 +4,7 @@ as
 	declare @Msg as nvarchar(50) = ''; 
 	declare @NewId as INT = -1; 
 
-	if(@id is not null)
+	if(@id is not null and @id > 0)
 	begin 
 		update Paient 
 		set FullName = @fullName, Address = @address, Phone = @phone, Geneder = @gender, BirthDate = @birthdate, Country = @country 
@@ -13,7 +13,7 @@ as
 		set @Msg = 'Updated Successfully' 
 		set @NewId = SCOPE_IDENTITY()
 	end
-	if(@id is null)
+	if(@id is null or @id = 0)
 	begin 
 		insert into Paient values(@fullName, @address, @phone, @gender, @birthdate, @country)
 
@@ -21,11 +21,11 @@ as
 		set @NewId = SCOPE_IDENTITY()
 	end
 
-	select @Msg as ReturnedMsg, @NewId as Id
+	select @Msg as ReturnedMsg, @NewId as ID
 go;
 
 
-Create procedure deletePaient 
+create procedure deletePaient 
 @id int
 as  
 	declare @Msg as nvarchar(50) = ''; 
@@ -39,7 +39,7 @@ as
 		set @NewId = SCOPE_IDENTITY()
 	end
 
-	select @Msg as ReturnedMsg, @NewId as Id
+	select @Msg as ReturnedMsg, @NewId as ID
 go; 
 
 
@@ -50,7 +50,7 @@ as
 	declare @Msg as nvarchar(50) = ''; 
 	declare @NewId as INT = -1; 
 	
-	if(@id is null)
+	if(@id is null or @id = 0)
 	begin 
 		if(@startDate is not null and @endDate is not null and @endDate >= @startDate) 
 		begin 
@@ -75,7 +75,7 @@ as
 			end
 		end
 	end
-	if(@id is not null)
+	if(@id is not null and @id > 0)
 	begin 
 		--validate the dates first 
 		declare @countConfilectsWithUpdate as int = 0;
@@ -96,7 +96,7 @@ as
 		begin 
 			set @Msg = 'this Appointment dates is busy'
 		end
-		select @Msg as returnedMsg,
+		select @Msg as ReturnedMsg,
 			   @NewId AS ID
 	end
 go; 
@@ -122,7 +122,7 @@ as
 		set @NewId = SCOPE_IDENTITY()
 	end
 
-	select @Msg as ReturnedMsg, @NewId as Id
+	select @Msg as ReturnedMsg, @NewId as ID
 go; 
 
 create procedure getPaients 
@@ -165,13 +165,13 @@ as
 	select * from Appointment where  (StartDate between @startDate and @endDate )  and (EndDate between @startDate and @endDate)
 go; 
 
-Create procedure addOrEditUser 
+create procedure addOrEditUser 
 @name nvarchar(250), @email nvarchar(250), @password text, @id int
 as  
 	declare @Msg as nvarchar(50) = ''; 
 	declare @NewId as INT = -1; 
 	
-	if(@id is null)
+	if(@id is null or @id = 0)
 	begin 
 		insert into [dbo].[User] values(@name, @email, @password)
 		set @Msg = 'Inserted Successfully' 
@@ -185,7 +185,7 @@ as
 		set @Msg = 'Updated Successfully' 
 	end
 
-	select @Msg as ReturnedMsg, @NewId as InsertedId
+	select @Msg as ReturnedMsg, @NewId as ID
 go; 
 
 create procedure deleteUser
@@ -196,7 +196,7 @@ as
 	delete from [dbo].[User] where Id = @id
 	set @Msg = 'Deletd Successfully' 
 	set @NewId = SCOPE_IDENTITY()
-	select @Msg as ReturnedMsg, @NewId as InsertedId 
+	select @Msg as ReturnedMsg, @NewId as ID 
 go; 
 
 create procedure getUser
