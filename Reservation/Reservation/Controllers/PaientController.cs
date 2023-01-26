@@ -9,14 +9,12 @@ namespace Reservation.Controllers
 {
     public class PaientController: Controller
     {
-        public AppointmentDataAccess _appointmentData { get; }
         public PaientDataAccess _painetData { get; }
         private readonly IMapper _mapper;
-        public PaientController(AppointmentDataAccess appointmentData, PaientDataAccess paientDataAccess,
+        public PaientController( PaientDataAccess paientDataAccess,
             IMapper mapper
             )
         {
-            _appointmentData = appointmentData;
             _painetData = paientDataAccess;
             _mapper = mapper;
         }
@@ -44,15 +42,6 @@ namespace Reservation.Controllers
 
         public IActionResult AddPaient()
         {
-
-           // var model = new AddAppointmentViewModel();
-           //// model.Paients = new SelectList(_painetData.GetAllPaient());
-           // model.Paients = new SelectList(
-           //     _painetData.GetAllPaient()
-           //     .Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.FullName)),
-           //     "Key", "Value"
-           //     );
-
             return View(); 
         }
         public IActionResult Save(AddPaientViewModel model)
