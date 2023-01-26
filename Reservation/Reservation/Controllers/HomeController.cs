@@ -3,18 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 using Reservation.Data.DataAccess;
 using Reservation.Models;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using Reservation.Data.Tables;
 
 namespace Reservation.Controllers
 {
     public class HomeController : Controller
     {
         public AppointmentDataAccess _appointmentData { get; }
+        public PaientDataAccess _painetData { get; }
         private readonly IMapper _mapper;
-        public HomeController(AppointmentDataAccess appointmentData,
+        public HomeController(AppointmentDataAccess appointmentData, PaientDataAccess paientDataAccess,
             IMapper mapper
             )
         {
             _appointmentData = appointmentData;
+            _painetData = paientDataAccess;
             _mapper = mapper;
         }
 
@@ -50,7 +54,23 @@ namespace Reservation.Controllers
         public IActionResult AddAppointment()
         {
 
+           // var model = new AddAppointmentViewModel();
+           //// model.Paients = new SelectList(_painetData.GetAllPaient());
+           // model.Paients = new SelectList(
+           //     _painetData.GetAllPaient()
+           //     .Select(x => new KeyValuePair<string, string>(x.Id.ToString(), x.FullName)),
+           //     "Key", "Value"
+           //     );
+
             return View(); 
+        }
+        public IActionResult Save(AddAppointmentViewModel model)
+        {
+            var mapped = _mapper.Map<Appointment>(model); 
+            var result =  _appointmentData.AddOrUpdateAppointment(mapped);
+
+
+            return View(model);
         }
     }
 }

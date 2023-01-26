@@ -41,7 +41,7 @@ namespace Reservation.Data.DataAccess
             }
             return lstAppointment;
         }
-        public void AddOrUpdateAppointment(Appointment Appointment)
+        public Result AddOrUpdateAppointment(Appointment Appointment)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -55,8 +55,16 @@ namespace Reservation.Data.DataAccess
                 cmd.Parameters.AddWithValue("@paientId", Appointment.PaientId);
                 cmd.Parameters.AddWithValue("@id", Appointment.Id);
                 con.Open();
-                cmd.ExecuteNonQuery();
+                SqlDataReader rdr = cmd.ExecuteReader();
+
+                Result Result = new Result();
+                while (rdr.Read())
+                {
+                    Result.NewId = Convert.ToInt32(rdr["ID"]);
+                    Result.Msg = rdr["returnedMsg"].ToString();
+                }
                 con.Close();
+                return Result;
             }
         }
 

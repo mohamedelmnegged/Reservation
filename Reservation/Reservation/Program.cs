@@ -8,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 // scoped service 
 builder.Services.AddScoped<AppointmentDataAccess>();
+builder.Services.AddScoped<PaientDataAccess>();
 
 
 // Auto Mapper Configurations

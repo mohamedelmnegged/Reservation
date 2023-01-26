@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.ComponentModel.DataAnnotations;
 
 namespace Reservation.Models
@@ -7,6 +8,7 @@ namespace Reservation.Models
         public AppointmentViewModel()
         {
             Paient = new PaientViewModel();
+  
         }
         [Required]
         public int Id { get; set; }
