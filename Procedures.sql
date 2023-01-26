@@ -11,7 +11,7 @@ as
 		where Id = @id
 
 		set @Msg = 'Updated Successfully' 
-		set @NewId = SCOPE_IDENTITY()
+		set @NewId = 1
 	end
 	if(@id is null or @id = 0)
 	begin 
@@ -36,7 +36,7 @@ as
 		delete from Paient where Id = @id
 
 		set @Msg = 'Deleted Successfully' 
-		set @NewId = SCOPE_IDENTITY()
+		set @NewId = 1
 	end
 
 	select @Msg as ReturnedMsg, @NewId as ID
@@ -52,7 +52,12 @@ as
 	
 	if(@id is null or @id = 0)
 	begin 
-		if(@startDate is not null and @endDate is not null and @endDate >= @startDate) 
+		
+		if(@paientId = 0) 
+		begin 
+			set @Msg = 'Cannot add Appointment without paient id '
+		end
+		if(@startDate is not null and @endDate is not null and @endDate >= @startDate and @paientId  > 0) 
 		begin 
 			declare @countConfilectsWithAdd as int ; 
 			select @countConfilectsWithAdd = count(*)  from Appointment where
@@ -91,14 +96,15 @@ as
 			where Id = @id
 
 			set @Msg = 'Updated Successfully'
+			set @NewId = 1
 		end
 		if(@countConfilectsWithUpdate > 0) 
 		begin 
 			set @Msg = 'this Appointment dates is busy'
 		end
-		select @Msg as ReturnedMsg,
-			   @NewId AS ID
 	end
+	select @Msg as ReturnedMsg,
+			   @NewId AS ID
 go; 
 
 
@@ -113,13 +119,12 @@ as
 		delete from Appointment where Id = @id
 
 		set @Msg = 'Deleted Successfully' 
-		set @NewId = SCOPE_IDENTITY()
+		set @NewId = 1
 	end
 
 	if(@id is null)
 	begin 
 		set @Msg = 'Id Shouldnot be null' 
-		set @NewId = SCOPE_IDENTITY()
 	end
 
 	select @Msg as ReturnedMsg, @NewId as ID
@@ -183,6 +188,7 @@ as
 		where Id = @id;
 
 		set @Msg = 'Updated Successfully' 
+		set @NewId = 1
 	end
 
 	select @Msg as ReturnedMsg, @NewId as ID
@@ -195,7 +201,7 @@ as
 	declare @NewId as INT = -1;
 	delete from [dbo].[User] where Id = @id
 	set @Msg = 'Deletd Successfully' 
-	set @NewId = SCOPE_IDENTITY()
+	set @NewId = 1
 	select @Msg as ReturnedMsg, @NewId as ID 
 go; 
 

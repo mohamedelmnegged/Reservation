@@ -1,29 +1,29 @@
-﻿@model IEnumerable<AppointmentViewModel> 
+﻿@model IEnumerable<PaientViewModel> 
 @{
-    ViewData["Title"] = "Appointments";
+    ViewData["Title"] = "Paients";
 }
 
-@if (!string.IsNullOrEmpty(ViewBag.Appointment))
+@if (!string.IsNullOrEmpty(ViewBag.Paient))
 {
     <div class="text-danger">
-        @ViewBag.Appointment
+        @ViewBag.Paient
     </div>
 }
 
 <div class="text-center"> 
     <h1> Appointments </h1>
     <div class="col-2 float-end">
-        <a class="btn btn-primary add-button" asp-action="addAppointment">Add</a>
+        <a class="btn btn-primary add-button" asp-action="addPaient">Add</a>
     </div>
     <table class="table table-striped">
         <thead>
             <tr>
-                <th scope="col">Start Date</th>
-                <th scope="col">End Date</th>
-                <th scope="col">Type</th>
-                <th scope="col">Status</th>
-                <th scope="col">Paient</th>
-                <th scope="col">Period</th>
+                <th scope="col">Full Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Geneder</th>
+                <th scope="col">BirthDate</th>
+                <th scope="col">Country</th>
                 <th scope="col">Actions</th>
             </tr>
         </thead>
@@ -31,12 +31,12 @@
             @foreach(var data in Model)
             {
                 <tr>
-                    <td>@data.StartDate</td>
-                    <td>@data.EndDate</td>
-                    <td> <span class="bg-@data.TypeColor p-1">@data.Type</span> </td>
-                    <td> <span class="bg-@data.StatusColor p-1">@data.Status </span></td>
-                    <td>@data.PaientId</td>
-                    <td>@data.Period</td>
+                    <td> @data.FullName</td>
+                    <td> @data.Address</td>
+                    <td> @data.Phone </td>
+                     @if(data.Geneder == 0){ <td>Male</td> } else { <td> Female </td>} 
+                    <td>  @data.BirthDate.ToString("dd/M/yyyy") </td>
+                    <td> @data.Country</td>
                     <td>
                         <a class="btn btn-outline-info" asp-action="edit" asp-route-id="@data.Id" > edit </a>
                         <a class="btn btn-outline-danger" onclick="deleteAppointment(@data.Id)"> delete </a>

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Reservation.Data.Tables;
 using Reservation.Models;
+using System.Globalization;
 
 namespace Reservation.Mapper
 {
@@ -15,6 +16,11 @@ namespace Reservation.Mapper
 
             CreateMap<AddAppointmentViewModel, Appointment>()
                 .ForMember(dest => dest.PaientId, opt => opt.MapFrom(src => src.PaientId));
+            
+            CreateMap<Appointment, AddAppointmentViewModel>()
+                .ForMember(dest => dest.PaientId, opt => opt.MapFrom(src => src.PaientId));
+
+            CreateMap<Paient, PaientViewModel>();
 
             //.ForMember(dest => dest.PatientId, opt => opt.MapFrom(src => src.PaientId));
             //CreateMap<Appointment, AppointmentViewModel>()

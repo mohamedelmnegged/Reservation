@@ -61,7 +61,7 @@ namespace Reservation.Data.DataAccess
                 while (rdr.Read())
                 {
                     Result.NewId = Convert.ToInt32(rdr["ID"]);
-                    Result.Msg = rdr["returnedMsg"].ToString();
+                    Result.Msg = rdr["ReturnedMsg"].ToString();
                 }
                 con.Close();
                 return Result;

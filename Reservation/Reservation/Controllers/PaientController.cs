@@ -7,12 +7,12 @@ using Reservation.Data.Tables;
 
 namespace Reservation.Controllers
 {
-    public class HomeController : Controller
+    public class PaientController: Controller
     {
         public AppointmentDataAccess _appointmentData { get; }
         public PaientDataAccess _painetData { get; }
         private readonly IMapper _mapper;
-        public HomeController(AppointmentDataAccess appointmentData, PaientDataAccess paientDataAccess,
+        public PaientController(AppointmentDataAccess appointmentData, PaientDataAccess paientDataAccess,
             IMapper mapper
             )
         {
@@ -23,23 +23,13 @@ namespace Reservation.Controllers
 
         public IActionResult Index()
         {
-            var appointments = _mapper.Map<IEnumerable<AppointmentViewModel>>( _appointmentData.GetAllAppointment());
+            var appointments = _mapper.Map<IEnumerable<PaientViewModel>>( _painetData.GetAllPaient());
            
 
             return View(appointments);
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
-
+      
         [HttpDelete("/appointment/{id}")]
         public IActionResult Delete(int id)
         {
