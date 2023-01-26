@@ -580,19 +580,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ELMAJD COMP\\.nuget\\packages\\": {}
+    "C:\\Users\\nozom\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "F:\\Programming\\Interviews\\Pexera\\Reservation\\Reservation\\Reservation\\Reservation.csproj",
+      "projectUniqueName": "E:\\new hard\\dev\\Tasks\\Reservation\\Reservation\\Reservation\\Reservation.csproj",
       "projectName": "Reservation",
-      "projectPath": "F:\\Programming\\Interviews\\Pexera\\Reservation\\Reservation\\Reservation\\Reservation.csproj",
-      "packagesPath": "C:\\Users\\ELMAJD COMP\\.nuget\\packages\\",
-      "outputPath": "F:\\Programming\\Interviews\\Pexera\\Reservation\\Reservation\\Reservation\\obj\\",
+      "projectPath": "E:\\new hard\\dev\\Tasks\\Reservation\\Reservation\\Reservation\\Reservation.csproj",
+      "packagesPath": "C:\\Users\\nozom\\.nuget\\packages\\",
+      "outputPath": "E:\\new hard\\dev\\Tasks\\Reservation\\Reservation\\Reservation\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ELMAJD COMP\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\nozom\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -646,7 +646,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

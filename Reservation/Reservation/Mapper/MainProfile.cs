@@ -8,7 +8,11 @@ namespace Reservation.Mapper
     {
         public MainProfile()
         {
-            CreateMap<Appointment, AppointmentViewModel>();
+            CreateMap<Appointment, AppointmentViewModel>()
+                .ForMember(dest => dest.StatusColor, opt => opt.MapFrom(src => src.Status))
+                .ForMember(dest => dest.TypeColor, opt => opt.MapFrom(src => src.Type))
+                .ForMember(dest => dest.PaientId, opt => opt.MapFrom(src => src.PaientId));
+                //.ForMember(dest => dest.PatientId, opt => opt.MapFrom(src => src.PaientId));
             //CreateMap<Appointment, AppointmentViewModel>()
             //    .ForMember(dest => dest.Status, opt => opt.MapFrom(src => src.Status))
             //    .ForMember(dest => dest.Type, opt => opt.MapFrom(src => src.Type))

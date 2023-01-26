@@ -4,6 +4,10 @@ namespace Reservation.Models
 {
     public class AppointmentViewModel
     {
+        public AppointmentViewModel()
+        {
+            Paient = new PaientViewModel();
+        }
         [Required]
         public int Id { get; set; }
         [Required]
@@ -18,6 +22,10 @@ namespace Reservation.Models
         public Data.Enums.Status Status { get; set; }
         [Required]
         public PaientViewModel Paient { get; set; }
+        public int PaientId { get; set; }
         public int Period { get; set; }
+
+        public Data.Enums.StatusColors StatusColor { get; set; }
+        public Data.Enums.TypeColors TypeColor { get; set; }
     }
 }

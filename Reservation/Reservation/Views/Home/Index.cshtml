@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<AppointmentViewModel> 
+@{
     ViewData["Title"] = "Home Page";
 }
 
@@ -16,67 +17,22 @@
                 <th scope="col">Actions</th>
             </tr>
         </thead>
-        <tbody>
-            <tr>
-                <td>10-10-2022 12:10:00</td>
-                <td>10-10-2022 14:10:00</td>
-                <td>Follow Up</td>
-                <td>Arrival</td>
-                <td>Mohamed</td>
-                <td>2</td>
-                <td> 
-                    <a class="btn btn-outline-info"> edit </a>
-                    <a class="btn btn-outline-danger"> delete </a>
-                </td>
-            </tr>
-            <tr>
-                <td>10-10-2022 12:10:00</td>
-                <td>10-10-2022 14:10:00</td>
-                <td>Follow Up</td>
-                <td>Arrival</td>
-                <td>Mohamed</td>
-                <td>2</td>
-                <td> 
-                    <a class="btn btn-outline-info"> edit </a>
-                    <a class="btn btn-outline-danger"> delete </a>
-                </td>
-            </tr>
-            <tr>
-                <td>10-10-2022 12:10:00</td>
-                <td>10-10-2022 14:10:00</td>
-                <td>Follow Up</td>
-                <td>Arrival</td>
-                <td>Mohamed</td>
-                <td>2</td>
-                <td> 
-                    <a class="btn btn-outline-info"> edit </a>
-                    <a class="btn btn-outline-danger"> delete </a>
-                </td>
-            </tr>
-            <tr>
-                <td>10-10-2022 12:10:00</td>
-                <td>10-10-2022 14:10:00</td>
-                <td>Follow Up</td>
-                <td>Arrival</td>
-                <td>Mohamed</td>
-                <td>2</td>
-                <td> 
-                    <a class="btn btn-outline-info"> edit </a>
-                    <a class="btn btn-outline-danger"> delete </a>
-                </td>
-            </tr>
-            <tr>
-                <td>10-10-2022 12:10:00</td>
-                <td>10-10-2022 14:10:00</td>
-                <td>Follow Up</td>
-                <td>Arrival</td>
-                <td>Mohamed</td>
-                <td>2</td>
-                <td> 
-                    <a class="btn btn-outline-info"> edit </a>
-                    <a class="btn btn-outline-danger"> delete </a>
-                </td>
-            </tr>
+        <tbody> 
+            @foreach(var data in Model)
+            {
+                <tr>
+                    <td>@data.StartDate</td>
+                    <td>@data.EndDate</td>
+                    <td> <span class="bg-@data.TypeColor p-1">@data.Type</span> </td>
+                    <td> <span class="bg-@data.StatusColor p-1">@data.Status </span></td>
+                    <td>@data.PaientId</td>
+                    <td>@data.Period</td>
+                    <td>
+                        <a class="btn btn-outline-info"> edit </a>
+                        <a class="btn btn-outline-danger"> delete </a>
+                    </td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

@@ -32,3 +32,42 @@ F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\bin\Debug\n
 F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.csproj.CopyComplete
 F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\bin\Debug\net6.0\AutoMapper.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\appsettings.Development.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\appsettings.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.staticwebassets.runtime.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.exe
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.deps.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.runtimeconfig.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.pdb
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\AutoMapper.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\System.Data.SqlClient.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.csproj.AssemblyReference.cache
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.GeneratedMSBuildEditorConfig.editorconfig
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.AssemblyInfoInputs.cache
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.AssemblyInfo.cs
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.csproj.CoreCompileInputs.cache
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.MvcApplicationPartsAssemblyInfo.cache
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.RazorAssemblyInfo.cache
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.RazorAssemblyInfo.cs
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets\msbuild.Reservation.Microsoft.AspNetCore.StaticWebAssets.props
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets\msbuild.build.Reservation.props
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Reservation.props
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Reservation.props
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets.pack.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets.build.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets.development.json
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\scopedcss\bundle\Reservation.styles.css
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\scopedcss\projectbundle\Reservation.bundle.scp.css
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.csproj.CopyComplete
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\refint\Reservation.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.pdb
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.genruntimeconfig.cache
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\ref\Reservation.dll

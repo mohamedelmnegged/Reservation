@@ -23,7 +23,7 @@ namespace Reservation.Controllers
             var appointments = _mapper.Map<IEnumerable<AppointmentViewModel>>( _appointmentData.GetAllAppointment());
            
 
-            return View();
+            return View(appointments);
         }
 
         public IActionResult Privacy()
