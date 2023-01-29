@@ -23,6 +23,10 @@ namespace Reservation.Mapper
 
             CreateMap<Paient, AddPaientViewModel>();
 
+            CreateMap<RegisterViewModel, User>(); 
+            CreateMap<User, RegisterViewModel>(); 
+
+
 
         }
     }

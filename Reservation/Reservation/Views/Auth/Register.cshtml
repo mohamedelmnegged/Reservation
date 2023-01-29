@@ -1,0 +1,58 @@
+﻿@model RegisterViewModel 
+@{
+    ViewData["Title"] = "Register";
+    Layout = "_RegisterLayout";
+
+}
+
+@if (!string.IsNullOrEmpty( ViewBag.inserted))
+{
+    <div class="text-danger">
+        @ViewBag.inserted
+    </div>
+}
+
+<div class="container">
+    <h2>Registration Form</h2>
+    <form method="post" asp-controller="Auth" asp-action="Save">
+        <div class="form-group">
+            <label asp-for="Name">Name</label>
+            <input asp-for="Name" class="form-control"  placeholder="Enter your name">
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email</label>
+            <input asp-for="Email" class="form-control" placeholder="Enter email">
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Password">Password</label>
+            <input asp-for="Password" class="form-control" placeholder="Enter password">
+            <span asp-validation-for="Password" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ConfirmPassword">Confirm Password</label>
+            <input asp-for="ConfirmPassword" class="form-control"  placeholder="Confirm password">
+            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+
+@*<div class="text-center container">
+   
+</div>
+*@
+@*<div class="text-center container"> 
+    
+   
+
+</div>*@
+
+@section Scripts { 
+    <script>
+      
+    </script>
+}
+

@@ -4,6 +4,9 @@ using Reservation.Data.DataAccess;
 using Reservation.Models;
 using System.Diagnostics;
 using Reservation.Data.Tables;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using Reservation.Data;
 
 namespace Reservation.Controllers
 {
@@ -12,17 +15,24 @@ namespace Reservation.Controllers
         public AppointmentDataAccess _appointmentData { get; }
         public PaientDataAccess _painetData { get; }
         private readonly IMapper _mapper;
+        private readonly Validate _validate;
+
         public HomeController(AppointmentDataAccess appointmentData, PaientDataAccess paientDataAccess,
-            IMapper mapper
+            IMapper mapper, Validate validate
             )
         {
             _appointmentData = appointmentData;
             _painetData = paientDataAccess;
             _mapper = mapper;
+            _validate = validate;
         }
 
+       // [Authorize]
         public IActionResult Index()
         {
+            // _signInManager.
+            if (!_validate.CheckValidate())
+                return View("Login", "Auth");
             var appointments = _mapper.Map<IEnumerable<AppointmentViewModel>>( _appointmentData.GetAllAppointment());
            
 

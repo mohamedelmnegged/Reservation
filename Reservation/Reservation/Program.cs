@@ -1,4 +1,6 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Reservation.Data;
 using Reservation.Data.DataAccess;
 using Reservation.Mapper;
 
@@ -9,6 +11,9 @@ builder.Services.AddControllersWithViews();
 // scoped service 
 builder.Services.AddScoped<AppointmentDataAccess>();
 builder.Services.AddScoped<PaientDataAccess>();
+builder.Services.AddScoped<UserDataAccess>();
+builder.Services.AddScoped <Validate>();
+
 
 
 // Auto Mapper Configurations

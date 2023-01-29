@@ -32,16 +32,21 @@ F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\bin\Debug\n
 F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.csproj.CopyComplete
 F:\Programming\Interviews\Pexera\Reservation\Reservation\Reservation\bin\Debug\net6.0\AutoMapper.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.dll
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\appsettings.Development.json
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\appsettings.json
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.staticwebassets.runtime.json
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.exe
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.deps.json
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.runtimeconfig.json
-E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.dll
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Reservation.pdb
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\AutoMapper.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Microsoft.IdentityModel.JsonWebTokens.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Microsoft.IdentityModel.Logging.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\Microsoft.IdentityModel.Tokens.dll
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\System.Data.SqlClient.dll
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\System.IdentityModel.Tokens.Jwt.dll
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
@@ -63,6 +68,7 @@ E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\stati
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets.build.json
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\staticwebassets.development.json
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\scopedcss\Views\Shared\_RegisterLayout.cshtml.rz.scp.css
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\scopedcss\bundle\Reservation.styles.css
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\scopedcss\projectbundle\Reservation.bundle.scp.css
 E:\new hard\dev\Tasks\Reservation\Reservation\Reservation\obj\Debug\net6.0\Reservation.csproj.CopyComplete

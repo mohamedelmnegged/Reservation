@@ -182,7 +182,7 @@ as
 		set @Msg = 'Inserted Successfully' 
 		set @NewId = SCOPE_IDENTITY()
 	end 
-	if(@id is not null) 
+	if(@id is not null and @id > 0) 
 	begin 
 		update [dbo].[User] set Name = @name, Email = @email, Password = @password 
 		where Id = @id;
@@ -211,6 +211,11 @@ as
 	select * from [dbo].[User] where Id = @id
 go; 
 
+create procedure getUserByEmail
+@email varchar(250) 
+as	
+	select * from [dbo].[User] where Email = @email; 
+go; 
 
 --create procedure addAppointment 
 --@startDate date, @endDate date,@type tinyint, @status tinyint, @paientId int 

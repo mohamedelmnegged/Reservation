@@ -16,6 +16,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = E:\new hard\dev\Tasks\Reservation\Reservation\Reservation
 build_property._RazorSourceGeneratorDebug = 
 
+[E:/new hard/dev/Tasks/Reservation/Reservation/Reservation/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[E:/new hard/dev/Tasks/Reservation/Reservation/Reservation/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [E:/new hard/dev/Tasks/Reservation/Reservation/Reservation/Views/Home/AddAppointment.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZGRBcHBvaW50bWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -55,3 +63,7 @@ build_metadata.AdditionalFiles.CssScope =
 [E:/new hard/dev/Tasks/Reservation/Reservation/Reservation/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-aebvb4cndg
+
+[E:/new hard/dev/Tasks/Reservation/Reservation/Reservation/Views/Shared/_RegisterLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9SZWdpc3RlckxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = b-ce7sakhiml
