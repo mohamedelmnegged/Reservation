@@ -10,40 +10,44 @@ using Reservation.Data;
 
 namespace Reservation.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
         public AppointmentDataAccess _appointmentData { get; }
         public PaientDataAccess _painetData { get; }
         private readonly IMapper _mapper;
         private readonly Validate _validate;
-
+        private readonly UserManager<User> _userManager;
+        private readonly SignInManager<User> _signManager;
         public HomeController(AppointmentDataAccess appointmentData, PaientDataAccess paientDataAccess,
-            IMapper mapper, Validate validate
+            IMapper mapper, Validate validate, UserManager<User> userManager, SignInManager<User> signManager
             )
         {
             _appointmentData = appointmentData;
             _painetData = paientDataAccess;
             _mapper = mapper;
             _validate = validate;
+            _userManager = userManager;
+            _signManager = signManager; 
         }
-
-        [Authorize]
+        [Authorize()]
         public IActionResult Index()
         {
             // _signInManager.
             //if (!_validate.CheckValidate())
             //    return View("Login", "Auth");
+            //(!_signManager.)
             var appointments = _mapper.Map<IEnumerable<AppointmentViewModel>>( _appointmentData.GetAllAppointment());
            
 
             return View(appointments);
         }
-
+        [Authorize]
         public IActionResult Privacy()
         {
             return View();
         }
-
+        [Authorize]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

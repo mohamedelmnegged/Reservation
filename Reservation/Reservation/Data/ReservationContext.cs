@@ -6,6 +6,7 @@ using Reservation.Data.Tables;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using System.Runtime.Intrinsics.Arm;
 
 namespace Reservation.Data
 {
@@ -15,7 +16,15 @@ namespace Reservation.Data
             : base(options)
         {
         }
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<IdentityUserRole<string>>().HasNoKey();
 
-        public DbSet<Reservation.Data.Tables.User> User { get; set; } = default!;
+        }
+
+        public DbSet<User> User { get; set; }
+        public DbSet<IdentityUserClaim<string>> claims { get; set; }
+        public DbSet<IdentityUserRole<string>> roles { get; set; }
+        public DbSet<IdentityRole> role { get; set; }
     }
 }

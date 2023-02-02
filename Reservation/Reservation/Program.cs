@@ -26,10 +26,12 @@ internal class Program
         builder.Services.AddScoped<UserDataAccess>();
         builder.Services.AddScoped<Validate>();
 
-        
+
         //add identity 
         builder.Services.AddIdentity<Reservation.Data.Tables.User, IdentityRole>()
             .AddEntityFrameworkStores<ReservationContext>().AddDefaultTokenProviders();
+        //builder.Services.AddIdentity<Reservation.Data.Tables.User, IdentityRole>();
+
 
         builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
             .AddCookie(CookieAuthenticationDefaults.AuthenticationScheme,
@@ -49,6 +51,7 @@ internal class Program
             //options.Lockout.DefaultLockoutTimeSpan = TimeSpan.FromMinutes(15);
         });
 
+      //  builder.Services.Entity<IdentityUserRole<Guid>>().HasKey(p => new { p.UserId, p.RoleId });
         //builder.Services.AddIdentity<Reservation.Data.Tables.User, IdentityRole>(options =>
         //{
         //    options.User.RequireUniqueEmail = false;
@@ -81,7 +84,10 @@ internal class Program
 
         app.UseRouting();
 
+        //add identity middleware 
+        app.UseAuthentication();
         app.UseAuthorization();
+
 
         app.MapControllerRoute(
             name: "default",

@@ -4,9 +4,11 @@ using Reservation.Data.DataAccess;
 using Reservation.Models;
 using System.Diagnostics;
 using Reservation.Data.Tables;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Reservation.Controllers
 {
+    [Authorize]
     public class PaientController: Controller
     {
         public PaientDataAccess _painetData { get; }
