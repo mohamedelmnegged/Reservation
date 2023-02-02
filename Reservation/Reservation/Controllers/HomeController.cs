@@ -27,12 +27,12 @@ namespace Reservation.Controllers
             _validate = validate;
         }
 
-       // [Authorize]
+        [Authorize]
         public IActionResult Index()
         {
             // _signInManager.
-            if (!_validate.CheckValidate())
-                return View("Login", "Auth");
+            //if (!_validate.CheckValidate())
+            //    return View("Login", "Auth");
             var appointments = _mapper.Map<IEnumerable<AppointmentViewModel>>( _appointmentData.GetAllAppointment());
            
 

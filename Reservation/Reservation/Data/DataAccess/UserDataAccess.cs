@@ -21,7 +21,7 @@ namespace Reservation.Data.DataAccess
                 SqlCommand cmd = new SqlCommand("addOrEditUser", con);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@name", User.Name);
+                cmd.Parameters.AddWithValue("@name", User.UserName);
                 cmd.Parameters.AddWithValue("@email", User.Email);
                 cmd.Parameters.AddWithValue("@password", User.Password);
                 cmd.Parameters.AddWithValue("@id", User.Id);
@@ -55,7 +55,7 @@ namespace Reservation.Data.DataAccess
                 while (rdr.Read())
                 {
                     User.Id = Convert.ToInt32(rdr["Id"]);
-                    User.Name = rdr["Name"].ToString();
+                    User.UserName = rdr["Name"].ToString();
                     User.Email = rdr["Email"].ToString();
                     User.Password = rdr["Password"].ToString();
                 }
@@ -78,7 +78,7 @@ namespace Reservation.Data.DataAccess
                 while (rdr.Read())
                 {
                     User.Id = Convert.ToInt32(rdr["Id"]);
-                    User.Name = rdr["Name"].ToString();
+                    User.UserName = rdr["Name"].ToString();
                     User.Email = rdr["Email"].ToString();
                     User.Password = rdr["Password"].ToString();
                 }
