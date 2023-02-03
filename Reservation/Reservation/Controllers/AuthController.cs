@@ -16,14 +16,12 @@ namespace Reservation.Controllers
         private readonly UserManager<User> _userManager;
         private readonly SignInManager<User> _signManager;
 
-        public AuthController(IMapper mapper, UserDataAccess userDataAccess,Validate validate,
+        public AuthController(IMapper mapper,
             UserManager<User> userManager,
             SignInManager<User> signManager
             )
         {
             _mapper = mapper;
-            _userDataAccess = userDataAccess;
-            _validate = validate;
             _userManager = userManager;
             _signManager = signManager;
         }
