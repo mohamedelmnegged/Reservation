@@ -1,4 +1,4 @@
-﻿@model IEnumerable<AppointmentViewModel> 
+﻿@model SearchViewModel
 @{
     ViewData["Title"] = "Appointments";
 }
@@ -10,8 +10,44 @@
     </div>
 }
 
-<div class="text-center"> 
+<div class="text-center">
     <h1> Appointments </h1>
+    <button id="toggle-search-button" class="btn btn-secondary float-end">Show Search Panel</button>
+
+    <div id="search-panel" style="display:none">
+        <div class="form-group">
+            <form method="get">
+                <div class="p-3 m-3 ">
+                    @*<div class="form-group">
+                    <label asp-for="StartDate"></label>
+                    <input asp-for="StartDate" class="form-control">
+                    <span asp-validation-for="StartDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                    <label asp-for="EndDate"></label>
+                    <input asp-for="EndDate" class="form-control">
+                    <span asp-validation-for="EndDate" class="text-danger"></span>
+                    </div>*@
+                    <div class="form-group">
+                        <label asp-for="Status"></label>
+                        <select asp-for="Status" class="form-control" asp-items="Html.GetEnumSelectList<Reservation.Data.Enums.Status>()">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Type"></label>
+                        <select asp-for="Type" class="form-control" asp-items="Html.GetEnumSelectList<Reservation.Data.Enums.Type>()">
+                            <option selected="selected" value="">Please select</option>
+                        </select>
+                    </div>
+
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+        </div>
+
+    </div>
+
     <div class="col-2 float-end">
         <a class="btn btn-primary add-button" asp-action="addAppointment">Add</a>
     </div>
@@ -27,8 +63,8 @@
                 <th scope="col">Actions</th>
             </tr>
         </thead>
-        <tbody> 
-            @foreach(var data in Model)
+        <tbody>
+            @foreach (var data in Model.Appointments)
             {
                 <tr>
                     <td>@data.StartDate</td>
@@ -38,7 +74,7 @@
                     <td>@data.PaientId</td>
                     <td>@data.Period</td>
                     <td>
-                        <a class="btn btn-outline-info" asp-action="edit" asp-route-id="@data.Id" > edit </a>
+                        <a class="btn btn-outline-info" asp-action="edit" asp-route-id="@data.Id"> edit </a>
                         <a class="btn btn-outline-danger" onclick="deleteAppointment(@data.Id)"> delete </a>
                     </td>
                 </tr>
@@ -47,20 +83,32 @@
     </table>
 </div>
 
-@section Scripts { 
+@section Scripts {
     <script>
-        function deleteAppointment(id){
+        document.getElementById("toggle-search-button").addEventListener("click", function () {
+            var searchPanel = document.getElementById("search-panel");
+            if (searchPanel.style.display === "none") {
+                searchPanel.style.display = "block";
+                this.innerText = "Hide Search Panel";
+            } else {
+                searchPanel.style.display = "none";
+                this.innerText = "Show Search Panel";
+            }
+        });
+
+
+        function deleteAppointment(id) {
             if (confirm("Are you sure you want to delete this record?", "Deletion Confirmation", "Yes,No")) {
                 // delete the record
                 $.ajax({
                     url: '/appointment/' + id,
                     type: 'DELETE',
-                    success: function(result) {
+                    success: function (result) {
                         // handle the success
                         console.log(result);
                         location.reload();
                     },
-                    error: function(xhr, status, error) {
+                    error: function (xhr, status, error) {
                         // handle the error
                         console.log(xhr, status, error);
                     }
@@ -69,4 +117,3 @@
         }
     </script>
 }
-

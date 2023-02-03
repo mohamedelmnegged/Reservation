@@ -21,6 +21,6 @@ namespace Reservation.Models
         public int Type { get; set; }
         public int PaientId { get; set; }
         public int Period { get; set; }
-        public SelectList Paients { get; set; }
+       // public SelectList Paients { get; set; }
     }
 }

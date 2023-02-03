@@ -2,8 +2,8 @@
 {
     public enum Type
     { 
-        FollowUp, 
-        NewPaient, 
-        Consultant
+        FollowUp = 1, 
+        NewPaient = 2, 
+        Consultant = 3
     }
 }

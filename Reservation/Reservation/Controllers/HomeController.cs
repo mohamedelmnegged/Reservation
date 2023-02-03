@@ -30,18 +30,40 @@ namespace Reservation.Controllers
             _userManager = userManager;
             _signManager = signManager; 
         }
-        [Authorize()]
-        public IActionResult Index()
+
+        [Authorize]
+        public IActionResult Index(SearchViewModel? q)
         {
             // _signInManager.
             //if (!_validate.CheckValidate())
             //    return View("Login", "Auth");
-            //(!_signManager.)
-            var appointments = _mapper.Map<IEnumerable<AppointmentViewModel>>( _appointmentData.GetAllAppointment());
-           
+            //(!_signManager.) 
 
-            return View(appointments);
+            var model = new SearchViewModel(); // { SearchTerm = q };
+            var appointments = _mapper.Map<IEnumerable<AppointmentViewModel>>(_appointmentData.GetAllAppointment());
+
+            if (q != null && q.Status > 0)
+            {
+                appointments = appointments.Where(a => a.Status == (Data.Enums.Status)q.Status);
+            }
+            if (q != null && q.Type > 0)
+            {
+                appointments = appointments.Where(a => a.Type == (Data.Enums.Type)q.Type);
+            }
+            model.Appointments = appointments;
+
+            //if (!string.IsNullOrEmpty(q))
+            //{
+            //    // Perform the search and get the results
+            //    //var results = Search(q);
+            //   // model.Appointments = results;
+            //}
+
+
+
+            return View(model);
         }
+
         [Authorize]
         public IActionResult Privacy()
         {

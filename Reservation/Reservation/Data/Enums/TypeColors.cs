@@ -2,8 +2,8 @@
 {
     public enum TypeColors
     {
-        primary,
-        success,
-        info
+        primary = 1,
+        success = 2,
+        info = 3
     }
 }
