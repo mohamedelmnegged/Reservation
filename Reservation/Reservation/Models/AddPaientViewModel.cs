@@ -5,7 +5,7 @@ namespace Reservation.Models
 {
     public class AddPaientViewModel
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
         [Required(ErrorMessage = "Full Name is Required")]
         public string FullName { get; set; }
         [Required(ErrorMessage = "Address is Required")]
