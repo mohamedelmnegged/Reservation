@@ -8,13 +8,11 @@ namespace Reservation.Models
 
         //public string SearchTerm { get; set; }
         public IEnumerable<AppointmentViewModel> Appointments { get; set; }
-        //[Required]
-        //[DataType(DataType.DateTime)]
-        //public DateTime StartDate { get; set; }
-        //[Required]
-        //[DataType(DataType.DateTime)]
-        //public DateTime EndDate { get; set; } = DateTime.Now;
+        [DataType(DataType.DateTime)]
+        public DateTime StartDate { get; set; }
+        [DataType(DataType.DateTime)]
+        public DateTime EndDate { get; set; } = DateTime.Now;
         public int Status { get; set; }
         public int Type { get; set; }
-    }
+        public int Clicked { get; set; }    }
 }

@@ -50,6 +50,10 @@ namespace Reservation.Controllers
             {
                 appointments = appointments.Where(a => a.Type == (Data.Enums.Type)q.Type);
             }
+            //if (q.StartDate != null && q.Clicked == 1)
+            //{
+
+            //}
             model.Appointments = appointments;
 
             //if (!string.IsNullOrEmpty(q))
